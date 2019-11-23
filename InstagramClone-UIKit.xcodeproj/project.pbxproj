@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		79D76D852388BBA000A65A5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76D842388BBA000A65A5B /* AppDelegate.swift */; };
 		79D76D872388BBA000A65A5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76D862388BBA000A65A5B /* SceneDelegate.swift */; };
-		79D76D892388BBA000A65A5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76D882388BBA000A65A5B /* ViewController.swift */; };
 		79D76D8E2388BBA000A65A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D76D8D2388BBA000A65A5B /* Assets.xcassets */; };
 		79D76D912388BBA000A65A5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D76D8F2388BBA000A65A5B /* LaunchScreen.storyboard */; };
+		79D76D9E2388BD1400A65A5B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76D9D2388BD1400A65A5B /* TabBarController.swift */; };
+		79D76DA02388BD2B00A65A5B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76D9F2388BD2B00A65A5B /* HomeViewController.swift */; };
+		79D76DA22388BD3600A65A5B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76DA12388BD3600A65A5B /* SearchViewController.swift */; };
+		79D76DA42388BD4400A65A5B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76DA32388BD4400A65A5B /* PostViewController.swift */; };
+		79D76DA62388BD5100A65A5B /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76DA52388BD5100A65A5B /* ActivityViewController.swift */; };
+		79D76DA82388BD5A00A65A5B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76DA72388BD5A00A65A5B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		79D76D812388BBA000A65A5B /* InstagramClone-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InstagramClone-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D76D842388BBA000A65A5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79D76D862388BBA000A65A5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		79D76D882388BBA000A65A5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79D76D8D2388BBA000A65A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79D76D902388BBA000A65A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79D76D922388BBA000A65A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D76D9D2388BD1400A65A5B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		79D76D9F2388BD2B00A65A5B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		79D76DA12388BD3600A65A5B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		79D76DA32388BD4400A65A5B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		79D76DA52388BD5100A65A5B /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		79D76DA72388BD5A00A65A5B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +66,41 @@
 			children = (
 				79D76D842388BBA000A65A5B /* AppDelegate.swift */,
 				79D76D862388BBA000A65A5B /* SceneDelegate.swift */,
-				79D76D882388BBA000A65A5B /* ViewController.swift */,
+				79D76D9A2388BCDF00A65A5B /* Models */,
+				79D76D992388BCDA00A65A5B /* Views */,
+				79D76D982388BCD300A65A5B /* Controllers */,
 				79D76D8D2388BBA000A65A5B /* Assets.xcassets */,
-				79D76D8F2388BBA000A65A5B /* LaunchScreen.storyboard */,
 				79D76D922388BBA000A65A5B /* Info.plist */,
 			);
 			path = "InstagramClone-UIKit";
+			sourceTree = "<group>";
+		};
+		79D76D982388BCD300A65A5B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79D76D9D2388BD1400A65A5B /* TabBarController.swift */,
+				79D76D9F2388BD2B00A65A5B /* HomeViewController.swift */,
+				79D76DA12388BD3600A65A5B /* SearchViewController.swift */,
+				79D76DA32388BD4400A65A5B /* PostViewController.swift */,
+				79D76DA52388BD5100A65A5B /* ActivityViewController.swift */,
+				79D76DA72388BD5A00A65A5B /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		79D76D992388BCDA00A65A5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79D76D8F2388BBA000A65A5B /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		79D76D9A2388BCDF00A65A5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79D76D892388BBA000A65A5B /* ViewController.swift in Sources */,
+				79D76DA42388BD4400A65A5B /* PostViewController.swift in Sources */,
+				79D76DA22388BD3600A65A5B /* SearchViewController.swift in Sources */,
+				79D76D9E2388BD1400A65A5B /* TabBarController.swift in Sources */,
 				79D76D852388BBA000A65A5B /* AppDelegate.swift in Sources */,
+				79D76DA62388BD5100A65A5B /* ActivityViewController.swift in Sources */,
 				79D76D872388BBA000A65A5B /* SceneDelegate.swift in Sources */,
+				79D76DA82388BD5A00A65A5B /* ProfileViewController.swift in Sources */,
+				79D76DA02388BD2B00A65A5B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
