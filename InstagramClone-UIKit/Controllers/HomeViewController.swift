@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         
         let tvButton = UIBarButtonItem(image: UIImage(named: "tv"), style: .plain, target: self, action: #selector(tvButtonTapped))
         let dmButton = UIBarButtonItem(image: UIImage(named: "dm"), style: .plain, target: self, action: #selector(dmButtonTapped))
-        navigationItem.setRightBarButtonItems([tvButton, dmButton], animated: true)
+        navigationItem.setRightBarButtonItems([dmButton, tvButton], animated: true)
     }
     
     private func setupConstraints() {
