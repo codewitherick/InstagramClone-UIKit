@@ -9,22 +9,26 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    var logo: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupViews()
+        setupConstraints()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupViews() {
+        logo = UIImageView(image: UIImage(named: "logo"))
+        logo.translatesAutoresizingMaskIntoConstraints = false
+        navigationItem.titleView = logo
     }
-    */
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            logo.widthAnchor.constraint(equalTo: logo.heightAnchor, multiplier: 2.8),
+        ])
+    }
 
 }
