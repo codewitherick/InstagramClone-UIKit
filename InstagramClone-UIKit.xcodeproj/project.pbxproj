@@ -17,6 +17,9 @@
 		79D76DA42388BD4400A65A5B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76DA32388BD4400A65A5B /* PostViewController.swift */; };
 		79D76DA62388BD5100A65A5B /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76DA52388BD5100A65A5B /* ActivityViewController.swift */; };
 		79D76DA82388BD5A00A65A5B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76DA72388BD5A00A65A5B /* ProfileViewController.swift */; };
+		79EDC78D238DD8CB00972708 /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EDC78C238DD8CB00972708 /* HomeTableCell.swift */; };
+		79EDC791238DD9E400972708 /* HomeTableStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EDC790238DD9E400972708 /* HomeTableStoriesView.swift */; };
+		79EDC793238DDB1300972708 /* HomeTableStoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EDC792238DDB1300972708 /* HomeTableStoriesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		79D76DA32388BD4400A65A5B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		79D76DA52388BD5100A65A5B /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		79D76DA72388BD5A00A65A5B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		79EDC78C238DD8CB00972708 /* HomeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
+		79EDC790238DD9E400972708 /* HomeTableStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableStoriesView.swift; sourceTree = "<group>"; };
+		79EDC792238DDB1300972708 /* HomeTableStoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableStoriesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				79D76D8F2388BBA000A65A5B /* LaunchScreen.storyboard */,
+				79EDC78C238DD8CB00972708 /* HomeTableCell.swift */,
+				79EDC790238DD9E400972708 /* HomeTableStoriesView.swift */,
+				79EDC792238DDB1300972708 /* HomeTableStoriesCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,10 +186,13 @@
 				79D76DA22388BD3600A65A5B /* SearchViewController.swift in Sources */,
 				79D76D9E2388BD1400A65A5B /* TabBarController.swift in Sources */,
 				79D76D852388BBA000A65A5B /* AppDelegate.swift in Sources */,
+				79EDC791238DD9E400972708 /* HomeTableStoriesView.swift in Sources */,
 				79D76DA62388BD5100A65A5B /* ActivityViewController.swift in Sources */,
 				79D76D872388BBA000A65A5B /* SceneDelegate.swift in Sources */,
+				79EDC793238DDB1300972708 /* HomeTableStoriesCell.swift in Sources */,
 				79D76DA82388BD5A00A65A5B /* ProfileViewController.swift in Sources */,
 				79D76DA02388BD2B00A65A5B /* HomeViewController.swift in Sources */,
+				79EDC78D238DD8CB00972708 /* HomeTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
