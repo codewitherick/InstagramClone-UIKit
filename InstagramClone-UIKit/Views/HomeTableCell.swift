@@ -161,8 +161,8 @@ class HomeTableCell: UITableViewCell {
             // MARK: Actions Button
             actionsButton.trailingAnchor.constraint(equalTo: cellHeaderContainer.trailingAnchor, constant: -10),
             actionsButton.centerYAnchor.constraint(equalTo: cellHeaderContainer.centerYAnchor),
-            actionsButton.heightAnchor.constraint(equalToConstant: 20),
-            actionsButton.widthAnchor.constraint(equalToConstant: 20),
+            actionsButton.heightAnchor.constraint(equalToConstant: 25),
+            actionsButton.widthAnchor.constraint(equalToConstant: 25),
             
             // MARK: Content Image
             contentImage.topAnchor.constraint(equalTo: cellHeaderContainer.bottomAnchor),
