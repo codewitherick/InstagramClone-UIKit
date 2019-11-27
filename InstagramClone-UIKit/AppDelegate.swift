@@ -15,13 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UINavigationBar.appearance().backgroundColor = UIColor(red: 250, green: 250, blue: 250, alpha: 1)
-        UINavigationBar.appearance().tintColor = .black
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1)
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         UINavigationBar.appearance().isTranslucent = false
         
-        UITabBar.appearance().backgroundColor = UIColor(red: 250, green: 250, blue: 250, alpha: 1)
-        UITabBar.appearance().tintColor = .black
+        UITabBar.appearance().backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+        UITabBar.appearance().tintColor = UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1)
         UITabBar.appearance().isOpaque = false
         
         return true

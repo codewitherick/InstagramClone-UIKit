@@ -21,6 +21,7 @@
 		79EDC791238DD9E400972708 /* HomeTableStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EDC790238DD9E400972708 /* HomeTableStoriesView.swift */; };
 		79EDC793238DDB1300972708 /* HomeTableStoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EDC792238DDB1300972708 /* HomeTableStoriesCell.swift */; };
 		79EDC795238E1CD300972708 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EDC794238E1CD300972708 /* Post.swift */; };
+		79EDC797238E48B200972708 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EDC796238E48B200972708 /* Story.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		79EDC790238DD9E400972708 /* HomeTableStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableStoriesView.swift; sourceTree = "<group>"; };
 		79EDC792238DDB1300972708 /* HomeTableStoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableStoriesCell.swift; sourceTree = "<group>"; };
 		79EDC794238E1CD300972708 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = "InstagramClone-UIKit/Views/Post.swift"; sourceTree = SOURCE_ROOT; };
+		79EDC796238E48B200972708 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Story.swift; path = "InstagramClone-UIKit/Views/Story.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				79EDC794238E1CD300972708 /* Post.swift */,
+				79EDC796238E48B200972708 /* Story.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				79EDC791238DD9E400972708 /* HomeTableStoriesView.swift in Sources */,
 				79D76DA62388BD5100A65A5B /* ActivityViewController.swift in Sources */,
 				79D76D872388BBA000A65A5B /* SceneDelegate.swift in Sources */,
+				79EDC797238E48B200972708 /* Story.swift in Sources */,
 				79EDC793238DDB1300972708 /* HomeTableStoriesCell.swift in Sources */,
 				79D76DA82388BD5A00A65A5B /* ProfileViewController.swift in Sources */,
 				79D76DA02388BD2B00A65A5B /* HomeViewController.swift in Sources */,
