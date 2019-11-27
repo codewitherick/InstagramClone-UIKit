@@ -46,6 +46,7 @@ class HomeTableStoriesCell: UICollectionViewCell {
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textColor = .black
+        nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 12.0)
         
         // MARK: View Hierarchy
@@ -77,7 +78,16 @@ class HomeTableStoriesCell: UICollectionViewCell {
         // MARK: Profile Image
         profileImage.image = UIImage(named: "Profile Picture \(story.profileId)")
         
-        // MARK: Name Label
-        nameLabel.text = story.profileName
+        if story.profileId == 1 {
+            nameLabel.text = "Your Story"
+            nameLabel.textColor = .lightGray
+            storyRingImage.isHidden = true
+        }
+        else {
+            nameLabel.text = story.profileName
+            nameLabel.textColor = .black
+            storyRingImage.isHidden = false
+        }
+        
     }
 }

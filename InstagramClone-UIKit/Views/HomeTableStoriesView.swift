@@ -98,13 +98,6 @@ extension HomeTableStoriesView: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeStoriesCellIdentifier, for: indexPath) as! HomeTableStoriesCell
         cell.setupData(story: stories[indexPath.item])
-        
-        if indexPath.item == 0 {
-            cell.storyRingImage.isHidden = true
-            cell.nameLabel.text = "Your Story"
-            cell.nameLabel.textColor = .lightGray
-        }
-        
         return cell
     }
     
