@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		795CEAC62391EC310060BD87 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795CEAC52391EC310060BD87 /* Protocols.swift */; };
 		79D76D852388BBA000A65A5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76D842388BBA000A65A5B /* AppDelegate.swift */; };
 		79D76D872388BBA000A65A5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D76D862388BBA000A65A5B /* SceneDelegate.swift */; };
 		79D76D8E2388BBA000A65A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D76D8D2388BBA000A65A5B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		795CEAC52391EC310060BD87 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		79D76D812388BBA000A65A5B /* InstagramClone-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InstagramClone-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D76D842388BBA000A65A5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79D76D862388BBA000A65A5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		795CEAC42391EC1C0060BD87 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				795CEAC52391EC310060BD87 /* Protocols.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		79D76D782388BBA000A65A5B = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 				79D76D9A2388BCDF00A65A5B /* Models */,
 				79D76D992388BCDA00A65A5B /* Views */,
 				79D76D982388BCD300A65A5B /* Controllers */,
+				795CEAC42391EC1C0060BD87 /* Supporting Files */,
 				79D76D8D2388BBA000A65A5B /* Assets.xcassets */,
 				79D76D922388BBA000A65A5B /* Info.plist */,
 			);
@@ -197,6 +208,7 @@
 				79D76DA62388BD5100A65A5B /* ActivityViewController.swift in Sources */,
 				79D76D872388BBA000A65A5B /* SceneDelegate.swift in Sources */,
 				79EDC797238E48B200972708 /* Story.swift in Sources */,
+				795CEAC62391EC310060BD87 /* Protocols.swift in Sources */,
 				79EDC793238DDB1300972708 /* HomeTableStoriesCell.swift in Sources */,
 				79D76DA82388BD5A00A65A5B /* ProfileViewController.swift in Sources */,
 				79D76DA02388BD2B00A65A5B /* HomeViewController.swift in Sources */,

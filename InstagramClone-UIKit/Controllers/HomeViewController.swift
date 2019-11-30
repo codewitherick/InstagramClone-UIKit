@@ -109,7 +109,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeCellIdentifier) as! HomeTableCell
+        cell.postDelegate = self
         cell.setupData(post: posts[indexPath.row])
         return cell
+    }
+}
+
+extension HomeViewController: PostDelegate {
+    func didLikePost(likedPost: Post) {
+        for (index, post) in posts.enumerated() {
+            if post == likedPost {
+                posts[index].isLiked = true
+            }
+        }
+    }
+    
+    func didUnlikePost(unlikedPost: Post) {
+        for (index, post) in posts.enumerated() {
+            if post == unlikedPost {
+                posts[index].isLiked = true
+            }
+        }
     }
 }

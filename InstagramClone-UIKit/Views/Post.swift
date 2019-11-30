@@ -6,7 +6,7 @@
 //  Copyright © 2019 Erick Harris. All rights reserved.
 //
 
-struct Post {
+struct Post: Equatable {
     
     var profileId: Int
     var profileName: String

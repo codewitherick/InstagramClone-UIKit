@@ -10,6 +10,9 @@ import UIKit
 
 class HomeTableCell: UITableViewCell {
     
+    var post: Post!
+    var postDelegate: PostDelegate!
+    
     var cellHeaderContainer: UIView!
     var profileImage: UIImageView!
     var nameLabel: UILabel!
@@ -74,6 +77,7 @@ class HomeTableCell: UITableViewCell {
         likeButton = UIButton()
         likeButton.translatesAutoresizingMaskIntoConstraints = false
         likeButton.setImage(UIImage(named: "heart"), for: .normal)
+        likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         
         // MARK: Comment Button
         commentButton = UIButton()
@@ -217,6 +221,9 @@ class HomeTableCell: UITableViewCell {
     }
     
     public func setupData(post: Post) {
+        // MARK: Post
+        self.post = post
+        
         // MARK: Profile Image
         profileImage.image = UIImage(named: "Profile Picture \(post.profileId)")
         
@@ -225,6 +232,14 @@ class HomeTableCell: UITableViewCell {
         
         // MARK: Content Image
         contentImage.image = UIImage(named: "Content Post \(post.contentId)")
+        
+        // MARK: Like Button
+        if post.isLiked {
+            likeButton.setImage(UIImage(named: "heart-filled")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+        }
+        else {
+            likeButton.setImage(UIImage(named: "heart")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+        }
         
         // MARK: Likes Label
         let randomLike = post.likes[Int.random(in: 0..<post.likes.count)]
@@ -245,5 +260,14 @@ class HomeTableCell: UITableViewCell {
         
         // MARK: Time Label
         timeLabel.text = "10 minutes ago"
+    }
+    
+    @objc func likeButtonTapped(sender: UIButton) {
+        if post.isLiked {
+            postDelegate.didUnlikePost(unlikedPost: post)
+        }
+        else {
+            postDelegate.didLikePost(likedPost: post)
+        }
     }
 }
