@@ -12,11 +12,7 @@ class HomeViewController: UIViewController {
     
     let homeCellIdentifier = "homeCell"
     
-    var posts: [Post] = [] {
-        didSet {
-            homeTable.reloadData()
-        }
-    }
+    var posts: [Post] = []
     
     var logo: UIImageView!
     var homeTable: UITableView!
@@ -28,6 +24,7 @@ class HomeViewController: UIViewController {
         setupConstraints()
         
         posts = getPosts()
+        homeTable.reloadData()
     }
     
     private func setupViews() {

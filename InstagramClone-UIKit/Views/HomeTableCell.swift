@@ -19,6 +19,7 @@ class HomeTableCell: UITableViewCell {
     var actionsButton: UIButton!
     
     var contentImage: UIImageView!
+    var heartImage: UIImageView!
 
     var likeButton: UIButton!
     var commentButton: UIButton!
@@ -29,6 +30,8 @@ class HomeTableCell: UITableViewCell {
     
     var allCommentsButton: UIButton!
     var timeLabel: UILabel!
+    
+    var heartImageHeightConstraint: NSLayoutConstraint!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -72,6 +75,17 @@ class HomeTableCell: UITableViewCell {
         contentImage.translatesAutoresizingMaskIntoConstraints = false
         contentImage.contentMode = .scaleAspectFill
         contentImage.clipsToBounds = true
+        contentImage.isUserInteractionEnabled = true
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(postDoubleTapped))
+        doubleTapGesture.numberOfTapsRequired = 2
+        contentImage.addGestureRecognizer(doubleTapGesture)
+        
+        // MARK: Heart Image
+        heartImage = UIImageView()
+        heartImage.translatesAutoresizingMaskIntoConstraints = false
+        heartImage.image = UIImage(named: "big-heart")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        heartImage.alpha = 0
         
         // MARK: Like Button
         likeButton = UIButton()
@@ -127,6 +141,7 @@ class HomeTableCell: UITableViewCell {
         cellHeaderContainer.addSubview(actionsButton)
         
         addSubview(contentImage)
+        contentImage.addSubview(heartImage)
         
         addSubview(likeButton)
         addSubview(commentButton)
@@ -143,6 +158,9 @@ class HomeTableCell: UITableViewCell {
         // Constraints With Priority
         let contentHeightConstraint = contentImage.heightAnchor.constraint(lessThanOrEqualToConstant: 500)
         contentHeightConstraint.priority = UILayoutPriority(999)
+        
+        // Constraints to Animate
+        heartImageHeightConstraint = heartImage.heightAnchor.constraint(equalToConstant: 0)
         
         NSLayoutConstraint.activate([
             // MARK: Cell Header Container
@@ -173,6 +191,12 @@ class HomeTableCell: UITableViewCell {
             contentImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             contentHeightConstraint,
+            
+            // MARK: Heart Image
+            heartImage.centerXAnchor.constraint(equalTo: contentImage.centerXAnchor),
+            heartImage.centerYAnchor.constraint(equalTo: contentImage.centerYAnchor),
+            heartImage.widthAnchor.constraint(equalTo: heartImage.heightAnchor),
+            heartImageHeightConstraint,
             
             // MARK: Like Button
             likeButton.topAnchor.constraint(equalTo: contentImage.bottomAnchor, constant: 10),
@@ -242,7 +266,7 @@ class HomeTableCell: UITableViewCell {
         }
         
         // MARK: Likes Label
-        let randomLike = post.likes[Int.random(in: 0..<post.likes.count)]
+        let randomLike = post.likes[0]
         
         let likesString = NSMutableAttributedString(string: "Liked by ")
         likesString.append(NSAttributedString(string: randomLike, attributes: [.font: UIFont.boldSystemFont(ofSize: 13.0)]))
@@ -265,9 +289,34 @@ class HomeTableCell: UITableViewCell {
     @objc func likeButtonTapped(sender: UIButton) {
         if post.isLiked {
             postDelegate.didUnlikePost(unlikedPost: post)
+            likeButton.setImage(UIImage(named: "heart")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
         }
         else {
             postDelegate.didLikePost(likedPost: post)
+            likeButton.setImage(UIImage(named: "heart-filled")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
         }
+    }
+    
+    @objc func postDoubleTapped(sender: UITapGestureRecognizer) {
+        
+        postDelegate.didLikePost(likedPost: post)
+        likeButton.setImage(UIImage(named: "heart-filled")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            
+            self.heartImage.alpha = 1
+            self.heartImageHeightConstraint.constant = 100
+            self.layoutIfNeeded()
+            
+        }, completion: { _ in
+            
+            UIView.animate(withDuration: 0.2, delay: 0.4, options: .curveEaseInOut, animations: {
+                
+                self.heartImage.alpha = 0
+                self.heartImageHeightConstraint.constant = 1
+                self.layoutIfNeeded()
+                
+            })
+        })
     }
 }
