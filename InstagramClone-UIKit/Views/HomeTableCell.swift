@@ -17,6 +17,7 @@ class HomeTableCell: UITableViewCell {
     var profileImage: UIImageView!
     var nameLabel: UILabel!
     var actionsButton: UIButton!
+    var separator: UIView!
     
     var contentImage: UIImageView!
     var heartImage: UIImageView!
@@ -31,6 +32,7 @@ class HomeTableCell: UITableViewCell {
     var allCommentsButton: UIButton!
     var timeLabel: UILabel!
     
+    var contentImageHeightConstraint: NSLayoutConstraint!
     var heartImageHeightConstraint: NSLayoutConstraint!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -71,10 +73,15 @@ class HomeTableCell: UITableViewCell {
         actionsButton.setImage(UIImage(named: "dots"), for: .normal)
         actionsButton.addTarget(self, action: #selector(actionsButtonTapped), for: .touchUpInside)
         
+        // MARK: Separator
+        separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        
         // MARK: Content Image
         contentImage = UIImageView()
         contentImage.translatesAutoresizingMaskIntoConstraints = false
-        contentImage.contentMode = .scaleAspectFill
+        contentImage.contentMode = .scaleAspectFit
         contentImage.clipsToBounds = true
         contentImage.isUserInteractionEnabled = true
         
@@ -140,6 +147,7 @@ class HomeTableCell: UITableViewCell {
         cellHeaderContainer.addSubview(profileImage)
         cellHeaderContainer.addSubview(nameLabel)
         cellHeaderContainer.addSubview(actionsButton)
+        cellHeaderContainer.addSubview(separator)
         
         addSubview(contentImage)
         contentImage.addSubview(heartImage)
@@ -156,10 +164,6 @@ class HomeTableCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        // Constraints With Priority
-        let contentHeightConstraint = contentImage.heightAnchor.constraint(lessThanOrEqualToConstant: 500)
-        contentHeightConstraint.priority = UILayoutPriority(999)
-        
         // Constraints to Animate
         heartImageHeightConstraint = heartImage.heightAnchor.constraint(equalToConstant: 0)
         
@@ -187,11 +191,16 @@ class HomeTableCell: UITableViewCell {
             actionsButton.heightAnchor.constraint(equalToConstant: 25),
             actionsButton.widthAnchor.constraint(equalToConstant: 25),
             
+            // MARK: Separator
+            separator.leadingAnchor.constraint(equalTo: cellHeaderContainer.leadingAnchor),
+            separator.trailingAnchor.constraint(equalTo: cellHeaderContainer.trailingAnchor),
+            separator.bottomAnchor.constraint(equalTo: cellHeaderContainer.bottomAnchor),
+            separator.heightAnchor.constraint(equalToConstant: 1),
+            
             // MARK: Content Image
             contentImage.topAnchor.constraint(equalTo: cellHeaderContainer.bottomAnchor),
             contentImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentHeightConstraint,
             
             // MARK: Heart Image
             heartImage.centerXAnchor.constraint(equalTo: contentImage.centerXAnchor),
@@ -258,6 +267,14 @@ class HomeTableCell: UITableViewCell {
         // MARK: Content Image
         contentImage.image = UIImage(named: "Content Post \(post.contentId)")
         
+        if let heightConstraint = contentImageHeightConstraint {
+            contentImage.removeConstraint(heightConstraint)
+        }
+        
+        let contentHeight = contentImage.intrinsicContentSize.height * UIScreen.main.bounds.width / contentImage.intrinsicContentSize.width
+        contentImageHeightConstraint = contentImage.heightAnchor.constraint(equalToConstant: contentHeight)
+        contentImageHeightConstraint.isActive = true
+        
         // MARK: Like Button
         if post.isLiked {
             likeButton.setImage(UIImage(named: "heart-filled")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
@@ -267,10 +284,8 @@ class HomeTableCell: UITableViewCell {
         }
         
         // MARK: Likes Label
-        let randomLike = post.likes[0]
-        
         let likesString = NSMutableAttributedString(string: "Liked by ")
-        likesString.append(NSAttributedString(string: randomLike, attributes: [.font: UIFont.boldSystemFont(ofSize: 13.0)]))
+        likesString.append(NSAttributedString(string: post.likes[0], attributes: [.font: UIFont.boldSystemFont(ofSize: 13.0)]))
         likesString.append(NSAttributedString(string: " and "))
         likesString.append(NSAttributedString(string: "others", attributes: [.font: UIFont.boldSystemFont(ofSize: 13.0)]))
         likesLabel.attributedText = likesString
@@ -306,7 +321,7 @@ class HomeTableCell: UITableViewCell {
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             
             self.heartImage.alpha = 1
-            self.heartImageHeightConstraint.constant = 100
+            self.heartImageHeightConstraint.constant = 75
             self.layoutIfNeeded()
             
         }, completion: { _ in
@@ -316,7 +331,6 @@ class HomeTableCell: UITableViewCell {
                 self.heartImage.alpha = 0
                 self.heartImageHeightConstraint.constant = 1
                 self.layoutIfNeeded()
-                
             })
         })
     }

@@ -61,11 +61,13 @@ class HomeTableStoriesView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            // MARK: Stories Collection
             storiesCollection.topAnchor.constraint(equalTo: topAnchor),
             storiesCollection.leadingAnchor.constraint(equalTo: leadingAnchor),
             storiesCollection.trailingAnchor.constraint(equalTo: trailingAnchor),
             storiesCollection.bottomAnchor.constraint(equalTo: bottomAnchor),
             
+            // MARK: Separator
             separator.leadingAnchor.constraint(equalTo: leadingAnchor),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor),
             separator.bottomAnchor.constraint(equalTo: bottomAnchor),

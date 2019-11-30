@@ -50,6 +50,9 @@ class HomeViewController: UIViewController {
         homeTable.tableHeaderView = HomeTableStoriesView(frame: CGRect(x: 0, y: 0, width: homeTable.frame.width, height: 100))
         homeTable.tableFooterView = UIView()
         homeTable.separatorStyle = .none
+        homeTable.rowHeight = UITableView.automaticDimension
+        homeTable.estimatedRowHeight = 500
+        
         
         // MARK: View Hierarchy
         view.addSubview(homeTable)
