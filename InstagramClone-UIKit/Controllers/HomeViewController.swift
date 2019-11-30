@@ -12,19 +12,18 @@ class HomeViewController: UIViewController {
     
     let homeCellIdentifier = "homeCell"
     
-    var posts: [Post] = []
+    var postStore: PostStore!
     
     var logo: UIImageView!
     var homeTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        postStore = PostStore()
 
         setupViews()
         setupConstraints()
-        
-        posts = getPosts()
-        homeTable.reloadData()
     }
     
     private func setupViews() {
@@ -79,53 +78,27 @@ class HomeViewController: UIViewController {
     @objc func dmButtonTapped() {
         
     }
-    
-    // Item Store
-    private func getPosts() -> [Post] {
-        
-        let post1 = Post(profileId: 1, profileName: "lisa_ray", contentId: 1, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post2 = Post(profileId: 2, profileName: "tedminkle", contentId: 2, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post3 = Post(profileId: 3, profileName: "casey_trulia11", contentId: 3, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post4 = Post(profileId: 4, profileName: "jackmurry", contentId: 4, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post5 = Post(profileId: 5, profileName: "collingram91", contentId: 5, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post6 = Post(profileId: 6, profileName: "jake_mars", contentId: 6, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post7 = Post(profileId: 7, profileName: "kellybittersworth", contentId: 7, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post8 = Post(profileId: 8, profileName: "alexgray", contentId: 8, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post9 = Post(profileId: 9, profileName: "kevinfong", contentId: 9, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        let post10 = Post(profileId: 10, profileName: "arminvanhunt", contentId: 10, isLiked: false, likes: ["John Wreck", "Tobias Free", "Johnny Monroe"], caption: "Fun at the lake", comments: [])
-        
-        return [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10]
-    }
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return postStore.allPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeCellIdentifier) as! HomeTableCell
         cell.postDelegate = self
-        cell.setupData(post: posts[indexPath.row])
+        cell.setupData(post: postStore.allPosts[indexPath.row])
         return cell
     }
 }
 
 extension HomeViewController: PostDelegate {
     func didLikePost(likedPost: Post) {
-        for (index, post) in posts.enumerated() {
-            if post == likedPost {
-                posts[index].isLiked = true
-            }
-        }
+        postStore.likePost(post: likedPost)
     }
     
     func didUnlikePost(unlikedPost: Post) {
-        for (index, post) in posts.enumerated() {
-            if post == unlikedPost {
-                posts[index].isLiked = true
-            }
-        }
+        postStore.unlikePost(post: unlikedPost)
     }
 }
