@@ -69,6 +69,7 @@ class HomeTableCell: UITableViewCell {
         actionsButton = UIButton()
         actionsButton.translatesAutoresizingMaskIntoConstraints = false
         actionsButton.setImage(UIImage(named: "dots"), for: .normal)
+        actionsButton.addTarget(self, action: #selector(actionsButtonTapped), for: .touchUpInside)
         
         // MARK: Content Image
         contentImage = UIImageView()
@@ -318,5 +319,9 @@ class HomeTableCell: UITableViewCell {
                 
             })
         })
+    }
+    
+    @objc func actionsButtonTapped(sender: UIButton) {
+        postDelegate.didTapActions(post: post)
     }
 }

@@ -101,4 +101,32 @@ extension HomeViewController: PostDelegate {
     func didUnlikePost(unlikedPost: Post) {
         postStore.unlikePost(post: unlikedPost)
     }
+    
+    func didTapActions(post: Post) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.view.tintColor = .black
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in})
+        alert.addAction(cancelAction)
+        
+        let reportAction = UIAlertAction(title: "Report", style: .destructive, handler: {_ in})
+        alert.addAction(reportAction)
+        
+        let muteAction = UIAlertAction(title: "Mute", style: .default, handler: {_ in})
+        alert.addAction(muteAction)
+        
+        let unfollowAction = UIAlertAction(title: "Unfollow", style: .default, handler: {_ in})
+        alert.addAction(unfollowAction)
+        
+        let copyAction = UIAlertAction(title: "Copy Link", style: .default, handler: {_ in})
+        alert.addAction(copyAction)
+        
+        let shareAction = UIAlertAction(title: "Share to...", style: .default, handler: {_ in})
+        alert.addAction(shareAction)
+        
+        let notificationsAction = UIAlertAction(title: "Turn On Post Notifications", style: .default, handler: {_ in})
+        alert.addAction(notificationsAction)
+        
+        present(alert, animated: true)
+    }
 }
