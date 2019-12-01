@@ -12,6 +12,7 @@ class HomeTableStoriesCell: UICollectionViewCell {
     
     var storyRingImage: UIImageView!
     var profileImage: UIImageView!
+    var plusImage: UIImageView!
     var nameLabel: UILabel!
     
     override init(frame: CGRect) {
@@ -42,6 +43,12 @@ class HomeTableStoriesCell: UICollectionViewCell {
         profileImage.layer.masksToBounds = true
         profileImage.layer.cornerRadius = 27
         
+        // MARK: Plus Image
+        plusImage = UIImageView()
+        plusImage.translatesAutoresizingMaskIntoConstraints = false
+        plusImage.image = UIImage(named: "plus-circle")
+        plusImage.layer.cornerRadius = 10
+        
         // MARK: Name Label
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +59,7 @@ class HomeTableStoriesCell: UICollectionViewCell {
         // MARK: View Hierarchy
         addSubview(storyRingImage)
         addSubview(profileImage)
+        addSubview(plusImage)
         addSubview(nameLabel)
     }
     
@@ -66,6 +74,11 @@ class HomeTableStoriesCell: UICollectionViewCell {
             profileImage.centerXAnchor.constraint(equalTo: storyRingImage.centerXAnchor),
             profileImage.heightAnchor.constraint(equalToConstant: 54),
             profileImage.widthAnchor.constraint(equalToConstant: 54),
+            
+            plusImage.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor, constant: 20),
+            plusImage.centerXAnchor.constraint(equalTo: profileImage.centerXAnchor, constant: 20),
+            plusImage.heightAnchor.constraint(equalToConstant: 20),
+            plusImage.widthAnchor.constraint(equalToConstant: 20),
             
             nameLabel.topAnchor.constraint(equalTo: storyRingImage.bottomAnchor, constant: 5),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
@@ -82,11 +95,13 @@ class HomeTableStoriesCell: UICollectionViewCell {
             nameLabel.text = "Your Story"
             nameLabel.textColor = .lightGray
             storyRingImage.isHidden = true
+            plusImage.isHidden = false
         }
         else {
             nameLabel.text = story.profileName
             nameLabel.textColor = .black
             storyRingImage.isHidden = false
+            plusImage.isHidden = true
         }
         
     }

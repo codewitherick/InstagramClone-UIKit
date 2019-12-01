@@ -82,7 +82,6 @@ class HomeTableCell: UITableViewCell {
         contentImage = UIImageView()
         contentImage.translatesAutoresizingMaskIntoConstraints = false
         contentImage.contentMode = .scaleAspectFit
-        contentImage.clipsToBounds = true
         contentImage.isUserInteractionEnabled = true
         
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(postDoubleTapped))
